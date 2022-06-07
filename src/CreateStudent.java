@@ -11,17 +11,6 @@ public class CreateStudent
 		{
 			System.out.println(student.name);
 		}
-		//Student s2 = new Student();
-		//Student s3 = new Student();
-		//System.out.println(s1);
-		//System.out.println(s2);
-		/*
-		s1.name = "Suyash";
-		s1.rollno = 35;
-		s1.gender = 'M';
-		s1.marks = 77.36f;*/
-		/*System.out.println(Student.count);
-		System.out.println(s1.getDetails());
-		System.out.println(s1.getGrade());*/
+
 	}
 }
