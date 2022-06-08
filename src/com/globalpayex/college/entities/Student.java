@@ -1,40 +1,37 @@
-import java.util.Vector;
+package com.globalpayex.college.entities;
 
-public class Student 
+public class Student extends CollegeUser
 {
-	String name;
-	char gender;
+	
 	int rollno;
 	float marks;
-	static int count;
-	//static Vector<Student> StudentList; 
-	//static Student[] StudentList;
-	
-	Student(String name, char gender,int roll, float marks)
+	public Student(String name, char gender,int roll, float marks)
 	{
-		this.name = name;
-		this.gender = gender;
+		super(name,gender);
 		this.rollno = roll;
 		this.marks = marks;
-		Student.count++;
-		//Student.StudentList.add(this); 
 	}
 	
-	Student()
+	
+	public Student()
 	{
 		this("NA",'M',-1,0.0f);
 	}
-	String getDetails()
-	{
-		
-		return "Name: "+this.name+"\nGender: "+this.gender+"\nRollNo: "+this.rollno+
-				"\nMarks: "+this.marks;
-	}
+	
 	
 	static Student newStudent(String name,char gender, int roll, float marks)
 	{
 		return new Student(name,gender,roll,marks);
 	}
+	
+	@Override
+	public String getDetails() 
+	{
+		// TODO Auto-generated method stub
+		return String.format(super.getDetails()+"\nRollNo: %s \nMarks %s", rollno,marks);
+	}
+	
+	
 	char getGrade()
 	{
 		char grade = ' ';
