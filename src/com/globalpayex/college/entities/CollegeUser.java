@@ -20,7 +20,6 @@ public class CollegeUser
 	@Override
 	public String toString() 
 	{
-		// TODO Auto-generated method stub
 		return String.format("Name: %s \nGender: %s",name,gender);
 	}
 
