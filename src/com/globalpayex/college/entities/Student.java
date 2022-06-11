@@ -12,7 +12,20 @@ public class Student extends CollegeUser
 		this.marks = marks;
 	}
 	
+	public int getRollNo()
+	{
+		return this.rollno;
+	}
 	
+	public String getName()
+	{
+		return this.name;
+	}
+	
+	public float getMarks()
+	{
+		return this.marks;
+	}
 	public Student()
 	{
 		this("NA",'M',-1,0.0f);
@@ -32,6 +45,28 @@ public class Student extends CollegeUser
 	}
 	
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + rollno;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (rollno != other.rollno)
+			return false;
+		return true;
+	}
+
 	char getGrade()
 	{
 		char grade = ' ';

@@ -1,6 +1,6 @@
 package com.globalpayex.college.entities;
 
-public class CollegeUser
+public class CollegeUser 
 {
 	String name;
 	char gender;
@@ -22,5 +22,4 @@ public class CollegeUser
 	{
 		return String.format("Name: %s \nGender: %s",name,gender);
 	}
-
 }
