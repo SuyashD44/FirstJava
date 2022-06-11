@@ -19,8 +19,7 @@ public class Professor extends CollegeUser implements SalariedPerson
 	
 	@Override
 	public String getDetails() 
-	{
-		
+	{	
 		// TODO Auto-generated method stub
 		return String.format(super.getDetails()+"\nSubjects %s %s",subjects[0],subjects[1]);
 	}
