@@ -1,13 +1,15 @@
 package com.golbalpayex.bank.entities;
 
+import java.util.Optional;
+
 import com.globalpayex.bank.exceptions.MinBalanceException;
 
 public class Account
 {
 	
-	String accType;
-	String accNumber;
-	double balance;
+	private String accType;
+	private String accNumber;
+	private double balance;
 	
 	public Account(String accType, String accNumber, double balance) 
 	{
@@ -15,6 +17,45 @@ public class Account
 		this.accType = accType;
 		this.accNumber = accNumber;
 		this.balance = balance;
+	}
+	
+	public void setAccType(String a)
+	{
+		if (a == "Savings" || a == "Current")
+			this.accType = a;
+		else 
+			throw new IllegalArgumentException("Account type has to Savings/Current");
+	}
+	
+	public void setAccNumber(String a)
+	{
+		if (a != null || a != " ")
+			this.accNumber = a;
+	}
+	
+	public void setAccBalance(double a)
+	{
+		if (a > 1000.0)
+		{
+			this.balance = a;
+		}
+		else 
+			throw new IllegalArgumentException("Account balance has to more than 1000");
+	}
+	
+	public String getAccType()
+	{
+		return this.accType;
+	}
+	
+	public String getAccNumber()
+	{
+		return this.accNumber;
+	}
+	
+	public double getAccBalance()
+	{
+		return this.balance;
 	}
 	
 	public String getAccountDetails()
@@ -50,5 +91,31 @@ public class Account
 		return this.balance -= amt;
 	}
 	
+	
+/*	public String getDetails()
+	{
+		if (this.accType == null && this.accType == null && this.balance == 0.0)
+		{
+			return null;
+			
+		}
+		
+		else return(String.format("Account number %s \n Account type %s\n Account balance %s"
+								  , this.accNumber,this.accType,this.balance));	
+		
+	}*/
+	
+	public Optional<String> getDetails()
+	{
+		if (this.accType == null && this.accType == null && this.balance == 0.0)
+		{
+			return Optional.empty();
+			
+		}
+		
+		else return Optional.of(String.format("Account number %s \n Account type %s\n Account balance %s"
+								  , this.accNumber,this.accType,this.balance));	
+		
+	}	
 
 }

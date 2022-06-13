@@ -1,13 +1,13 @@
 package com.globalpayex.college.entities;
 
-public class Student extends CollegeUser
+final public class Student extends CollegeUser
 {
 	
 	int rollno;
 	float marks;
-	public Student(String name, char gender,int roll, float marks)
+	public Student(String name, char gender, Address addr, int roll, float marks)
 	{
-		super(name,gender);
+		super(name,gender,addr);
 		this.rollno = roll;
 		this.marks = marks;
 	}
@@ -17,6 +17,10 @@ public class Student extends CollegeUser
 		return this.rollno;
 	}
 	
+	public char getGender()
+	{
+		return this.gender;
+	}
 	public String getName()
 	{
 		return this.name;
@@ -26,22 +30,23 @@ public class Student extends CollegeUser
 	{
 		return this.marks;
 	}
-	public Student()
+	/*public Student()
 	{
-		this("NA",'M',-1,0.0f);
+		this("NA",'M',,-1,0.0f);
 	}
+	*/
 	
-	
-	static Student newStudent(String name,char gender, int roll, float marks)
+	/*static Student newStudent(String name,char gender, int roll, float marks)
 	{
 		return new Student(name,gender,roll,marks);
 	}
-	
+	*/
 	@Override
 	public String getDetails() 
 	{
 		// TODO Auto-generated method stub
-		return String.format(super.getDetails()+"\nRollNo: %s \nMarks %s", rollno,marks);
+		return String.format(super.getDetails()+"\nRollNo: %s \nMarks %s \nAddress: %s", 
+				rollno,marks,this.getAddressRef().getAddress());
 	}
 	
 	
