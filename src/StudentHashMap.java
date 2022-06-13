@@ -18,7 +18,7 @@ public class StudentHashMap {
 		Address addr2 = new Address();
 		Address addr3 = new Address();
 		Address addr4 = new Address();
-		addr1.setAddress("India","MH", "400001");
+		addr1.setAddress("India","UP", "400001");
 		hmap.add(new Student("ABN",'M',addr1,35,77.63f));
 		addr2.setAddress("USA","NYU", "111111");
 		hmap.add(new Student("PQR",'F',addr2,75,70.63f));
