@@ -1,24 +1,40 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.awt.List;
-import java.util.Arrays;
-import java.util.Vector;
+import java.util.Random;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import junit.framework.Assert;
-
-class MathSeriesTest {
-
+@ExtendWith(MockitoExtension.class)
+class MathSeriesTest 
+{
+	@InjectMocks
+	MathSeries mathSeries;
+	@Mock
+	Random random;
 	@Test
-	void test() {
-		
-		Object[] actual = MathSeries.createFibonacci(8).toArray();
+	void test()
+	{	
+		//MathSeries mseries = new MathSeries();
+		Object[] actual = mathSeries.createFibonacci(8).toArray();
 		Integer [] expected=  {0, 1, 1, 2, 3, 5, 8, 13}; 
 		//Vector<Integer> expect = new Vector<>(Arrays.asList(arr));
 		//System.out.println(arr[7]);
 		assertArrayEquals(actual, expected);
-		//assert(actual,expect);
+		//assert(actual,expect);	
+	}
+	@Test
+	void testRandom()
+	{
+		//MathSeries mseries = new MathSeries();
+		Object[] actual = mathSeries.createFibonacci(8).toArray();
+		Integer [] expected=  {0, 1, 1, 2, 3, 5, 8, 13}; 
+		//Vector<Integer> expect = new Vector<>(Arrays.asList(arr));
+		//System.out.println(arr[7]);
+		assertArrayEquals(actual, expected);
 		
 	}
 

@@ -3,25 +3,33 @@ package com.golbalpayex.bank.entities;
 import java.util.Optional;
 
 import com.globalpayex.bank.exceptions.MinBalanceException;
-
+import static com.golbalpayex.bank.entities.BankConstants.*;
 public class Account
 {
 	
-	private String accType;
+	//private String accType;
+	private AccType accType;
 	private String accNumber;
 	private double balance;
 	
-	public Account(String accType, String accNumber, double balance) 
+	/*public Account(String accType, String accNumber, double balance) 
+	{
+		super();
+		this.accType = accType;
+		this.accNumber = accNumber;
+		this.balance = balance;
+	}*/
+
+	public Account(AccType accType, String accNumber, double balance) 
 	{
 		super();
 		this.accType = accType;
 		this.accNumber = accNumber;
 		this.balance = balance;
 	}
-	
-	public void setAccType(String a)
+	public void setAccType(AccType a)
 	{
-		if (a == "Savings" || a == "Current")
+		if (a == AccType.SAVINGS || a == AccType.CURRENT)
 			this.accType = a;
 		else 
 			throw new IllegalArgumentException("Account type has to Savings/Current");
@@ -43,7 +51,7 @@ public class Account
 			throw new IllegalArgumentException("Account balance has to more than 1000");
 	}
 	
-	public String getAccType()
+	public AccType getAccType()
 	{
 		return this.accType;
 	}
@@ -92,7 +100,7 @@ public class Account
 	}
 	
 	
-/*	public String getDetails()
+	public String getDetails()
 	{
 		if (this.accType == null && this.accType == null && this.balance == 0.0)
 		{
@@ -101,11 +109,11 @@ public class Account
 		}
 		
 		else return(String.format("Account number %s \n Account type %s\n Account balance %s"
-								  , this.accNumber,this.accType,this.balance));	
+								  , this.accNumber,this.accType.getValue(),this.balance));	
 		
-	}*/
+	}
 	
-	public Optional<String> getDetails()
+	/*public Optional<String> getDetails()
 	{
 		if (this.accType == null && this.accType == null && this.balance == 0.0)
 		{
@@ -116,6 +124,6 @@ public class Account
 		else return Optional.of(String.format("Account number %s \n Account type %s\n Account balance %s"
 								  , this.accNumber,this.accType,this.balance));	
 		
-	}	
+	}	*/
 
 }
